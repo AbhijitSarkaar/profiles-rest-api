@@ -1,0 +1,20 @@
+sections 
+    - setup the database 
+        - docstring to be added to class and functions for readability of code 
+        - every models to define a string representation function '__str__'
+        - model manager 
+            - 'objects' key is used to specify the model manager
+            - it is used by django instead of default user models to create users 
+            - model manager 
+        - error handling
+            - 'raise' keyword is used for handling exceptions
+        - it is a good practice to specify the database being used to store the data 
+            - user.save(using=self._db)
+        - user column 'is_superuser' is created by 'PermissionMixin' model
+        - migration for a specific app
+            - python manage.py makemigrations 'app_name' 
+
+
+concepts not understood fully 
+    - django commane line tool
+    - model manager 
