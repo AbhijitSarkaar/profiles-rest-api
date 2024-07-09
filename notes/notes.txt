@@ -13,6 +13,24 @@ sections
         - user column 'is_superuser' is created by 'PermissionMixin' model
         - migration for a specific app
             - python manage.py makemigrations 'app_name' 
+    
+    - intro to API views 
+        - it is a class which defines methods as http methods 
+        - methods can be used to define logic for api endpoints 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 concepts not understood fully 
