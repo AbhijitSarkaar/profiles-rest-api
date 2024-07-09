@@ -1,4 +1,5 @@
 sections 
+
     - setup the database 
         - docstring to be added to class and functions for readability of code 
         - every models to define a string representation function '__str__'
@@ -14,9 +15,19 @@ sections
         - migration for a specific app
             - python manage.py makemigrations 'app_name' 
     
-    - intro to API views 
+    - intro to APIview 
         - it is a class which defines methods as http methods 
-        - methods can be used to define logic for api endpoints 
+        - methods can be used to define logic for api endpoints
+        - serializers 
+            - it defines which fields to expect from the request 
+            - it adds validation on the data and validates request data 
+            - it can define which fields to be added to the request body 
+            - api views contain a serializer class which define the data schema and adds validations 
+    
+    - intro to Viewset 
+        - it is a class which defines methods to respond to different http methods
+        - methods are used to define logic for specific http methods
+        - django rest framework router is used to route the urls to viewset methods 
 
 
 
