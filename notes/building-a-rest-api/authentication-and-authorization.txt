@@ -1,0 +1,5 @@
+notes 
+
+    - logic for setting authentication and authorization is defined in model viewset 
+    - permissions can be created and added to viewset's 'permission_classes' which will be used 
+    to authorize users 

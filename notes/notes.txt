@@ -15,7 +15,7 @@ sections
         - migration for a specific app
             - python manage.py makemigrations 'app_name' 
 
-    - intro to APIview 
+    - APIview 
         - it is a class which defines methods as http methods 
         - methods can be used to define logic for api endpoints
         - serializers 
@@ -30,7 +30,7 @@ sections
                     - it validates the fields provided to the serializer
                     - it calls the defined 'create' function with validated_data 
     
-    - intro to Viewset 
+    - Viewset 
         - it is a class which defines methods to respond to different http methods
         - methods are used to define logic for specific http methods
         - django rest framework router is used to route the urls to viewset methods 
@@ -41,6 +41,14 @@ sections
             - django rest framework (DRF) knows standard functions relevant to a model viewset 
                 - DRF defines create, update, retrieve, destroy, list methods by default. only thing needed from model viewset's 
                 perspective is to define the structure of data through model serializer, and scope of data through 'queryset'
+
+    - Authentication and authorization
+        - rest framework provides a permissions module  
+        - Authentication and authorization feature is defined in viewset 
+        - permission class is defined and it added to viewset 
+        - authenticated user profile is added to the http requests by django using the key 'user' 
+            - request.user is the authenticated user 
+            - login status can be understood from the 'user' data in request 
 
 
 
