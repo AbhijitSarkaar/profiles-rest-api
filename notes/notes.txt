@@ -54,6 +54,7 @@ sections
             - login status can be understood from the 'user' data in request 
         - http request with header fpr user authetication 
             - 'Authorization': Token token_value 
+        - 
 
 
 

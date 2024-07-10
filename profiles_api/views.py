@@ -6,6 +6,7 @@ from rest_framework import filters
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 
 from profiles_api import serializers
@@ -165,6 +166,14 @@ class UserProfileFeedViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.UserProfleFeedItemSerializer 
     queryset = models.ProfileFeedItem.objects.all()
 
+    # IsAuthenticatedOrReadOnly: a viewset is made read only if a user is not authenticated 
+    # IsAuthenticated: a viewset is only accessible to a authenticated user 
+
+    permission_classes = (
+        permissions.UpdateOwnStatus,
+        IsAuthenticated
+    )
+
     # custom method to overwrite the object creation through 'create' function of model viewset 
     # gets called when http POST is called on this viewset 
 
@@ -172,7 +181,7 @@ class UserProfileFeedViewSet(viewsets.ModelViewSet):
         """ 
         Sets the user profile to the logged in user 
         """
-        
+
         serializer.save(user_profile = self.request.user)
 
 
