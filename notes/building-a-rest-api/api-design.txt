@@ -13,18 +13,49 @@
         - /api/profile/
 
     - http methods            
-            - GET /api/profile/ 
-                - list all the profiles 
+        - GET /api/profile/ 
+            - list all the profiles 
             
-            - POST /api/profile/   
-                - create a new profile 
+        - POST /api/profile/   
+            - create a new profile 
 
-            - PUT /api/profile/:id
-                - update a profile with id 
+        - PUT /api/profile/:id
+            - update a profile with id 
             
-            - PATCH /api/profile/:id 
-                - partial update a profile with id 
+        - PATCH /api/profile/<id> 
+            - partial update a profile with id 
 
-            - DELETE /api/profile/:id 
-                - delete a profile with id  
+        - DELETE /api/profile/<id> 
+            - delete a profile with id  
+
+
+
+// feed api 
+
+    - requirements
+        - create new feed item for authenticated users
+        - updating an existing feed item 
+        - delete a feed item 
+        - view existing feed items 
+
+    - url  
+        - /api/feed/
+
+    -  http methods 
+        - GET /api/feed/
+            - list all feed items 
+        
+        - POST /api/feed/ 
+            - create a new feed item for logged in user 
+        
+        - PUT /api/feed/<feed_item_id>
+            - update an existing feed item 
+            
+        - PATCH /api/feed/<feed_item_id>
+            - partial update an existing feed item 
+        
+        - DELETE /api/feed/<feed_item_id>
+            - delete an existing feed item 
+
+
             

@@ -42,6 +42,21 @@ class UserProfileSerializer(serializers.ModelSerializer):
         return user 
 
 
+class UserProfleFeedItemSerializer(serializers.ModelSerializer):
+    """
+    Serializes profile feed items 
+    """
 
+    class Meta:
+        model = models.ProfileFeedItem
+        fields = ('id', 'user_profile', 'status_text', 'created_on')
+
+        # user_profile is read only it has to be only logged in user
+        # feed items should not be allowed to assign to a different user than creator of the feed item 
+        extra_kwargs = {
+            'user_profile': {
+                'read_only': True 
+            }
+        }
 
     

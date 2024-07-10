@@ -1,7 +1,6 @@
 steps 
 
     - api design 
-    - implementation 
+    - create models and migrate db tables  
+    - implementation of logic 
     - user authentication and authorization
-    - user login
-    - 

@@ -41,6 +41,9 @@ sections
             - django rest framework (DRF) knows standard functions relevant to a model viewset 
                 - DRF defines create, update, retrieve, destroy, list methods by default. only thing needed from model viewset's 
                 perspective is to define the structure of data through model serializer, and scope of data through 'queryset'
+        - whenever a request is made to viewset, it gets passed to a serializer class. data is then validated and saved 
+        - 'request' object is an object passed to all viewsets every time a http request is made 
+            
 
     - Authentication and authorization
         - rest framework provides a permissions module  
@@ -49,6 +52,8 @@ sections
         - authenticated user profile is added to the http requests by django using the key 'user' 
             - request.user is the authenticated user 
             - login status can be understood from the 'user' data in request 
+        - http request with header fpr user authetication 
+            - 'Authorization': Token token_value 
 
 
 

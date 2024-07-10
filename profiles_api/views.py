@@ -148,14 +148,32 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     search_fields= ('name', 'email', )
 
 
-class UserLoginApiView(ObtainAuthToken):
-    """ Handle user authentication token """
+class UserLoginApiViewSet(ObtainAuthToken):
+    """ 
+    Handle user authentication token 
+    """
 
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
 
 
+class UserProfileFeedViewSet(viewsets.ModelViewSet):
+    """ 
+    Handles creating, updating and deleting profile feed items 
+    """
 
+    authentication_classes = (TokenAuthentication, )
+    serializer_class = serializers.UserProfleFeedItemSerializer 
+    queryset = models.ProfileFeedItem.objects.all()
 
+    # custom method to overwrite the object creation through 'create' function of model viewset 
+    # gets called when http POST is called on this viewset 
+
+    def perform_create(self, serializer):
+        """ 
+        Sets the user profile to the logged in user 
+        """
+        
+        serializer.save(user_profile = self.request.user)
 
 
 
