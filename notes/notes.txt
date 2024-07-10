@@ -4,9 +4,9 @@ sections
         - docstring to be added to class and functions for readability of code 
         - every models to define a string representation function '__str__'
         - model manager 
-            - 'objects' key is used to specify the model manager
-            - it is used by django instead of default user models to create users 
-            - model manager 
+            - django models uses model manager to interact with database 
+            - default name of model manager is 'objects'
+            - methods defined in model manager should be relevant to the database table 
         - error handling
             - 'raise' keyword is used for handling exceptions
         - it is a good practice to specify the database being used to store the data 
@@ -14,20 +14,33 @@ sections
         - user column 'is_superuser' is created by 'PermissionMixin' model
         - migration for a specific app
             - python manage.py makemigrations 'app_name' 
-    
+
     - intro to APIview 
         - it is a class which defines methods as http methods 
         - methods can be used to define logic for api endpoints
         - serializers 
-            - it defines which fields to expect from the request 
-            - it adds validation on the data and validates request data 
-            - it can define which fields to be added to the request body 
-            - api views contain a serializer class which define the data schema and adds validations 
+            - it helps in defining which fields are expected in request data
+            - validation of input data 
+            - create, update of model instances 
+            - serializers.ModelSerializer 
+                - create serializers specific to defined models 
+                - create objects in database for a model 
+                - overwriting default create function requires defining a 'create' function as method of ModelSerializer class 
+                - when creating a new object using UserProfileSerializer
+                    - it validates the fields provided to the serializer
+                    - it calls the defined 'create' function with validated_data 
     
     - intro to Viewset 
         - it is a class which defines methods to respond to different http methods
         - methods are used to define logic for specific http methods
         - django rest framework router is used to route the urls to viewset methods 
+        - model viewset 
+            - define a serializer class 
+            - provide a 'queryset' to a model viewset to specify which objects are to be managed through this viewset
+                - it is used to define the scope of data that this viewset is to be used to manage 
+            - django rest framework (DRF) knows standard functions relevant to a model viewset 
+                - DRF defines create, update, retrieve, destroy, list methods by default. only thing needed from model viewset's 
+                perspective is to define the structure of data through model serializer, and scope of data through 'queryset'
 
 
 

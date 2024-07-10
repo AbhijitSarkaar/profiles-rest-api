@@ -1,0 +1,31 @@
+steps 
+
+    - create a model serializer and connect to defined model 
+    - define a model viewset and connect to model serializer
+    - define a router and connect to defined model viewset 
+
+overall flow 
+
+    - settings.py defines UserProfile as default model for storing User data into table 
+    
+    - UserProfile model is created
+        - required fields needed to store user profile data is defined 
+    
+    - UserProfileManager model is created and added to UserProfile through overwriting the 'objects' key property 
+        - adds custom features during user creation process e.g storing encrypted passwords to database 
+    
+    - UserProfileSerializer is defined 
+        - connected to Userprofile model, it adds custom functionalities to different fields of UserProfile model instances 
+        - e.g only taking password during create / update of user profiles
+        - it adds data validation to field data for the fields defined in the UserProfile model  
+        - it defines methods to interact with the database 
+    
+    - UserProfileViewSet is defined 
+        - it is connected to UserProfileSerializer for the database operations on the UserProfile model instances 
+        - scope of work of the viewset is defined through 'queryset' keyword
+        - it is derived from ModelViewSet class which defines the http methods by default. it only needs to serializer and queryset 
+        to be connected to it  
+
+    - Route is registered 
+        - rest framework router is defined and a route is registered 
+        - route is connected to the UserProfileViewSet view 

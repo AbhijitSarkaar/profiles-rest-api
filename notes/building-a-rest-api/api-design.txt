@@ -1,0 +1,30 @@
+// profiles api 
+
+    - requirements
+        - create new users
+            - handle validation of user data 
+        - listing existing profiles 
+            - search for profiles using name, email 
+        - view specific profile 
+        - update profile of logged in user 
+        - delete logged in user's profile 
+
+    - url 
+        - /api/profile/
+
+    - http methods            
+            - GET /api/profile/ 
+                - list all the profiles 
+            
+            - POST /api/profile/   
+                - create a new profile 
+
+            - PUT /api/profile/:id
+                - update a profile with id 
+            
+            - PATCH /api/profile/:id 
+                - partial update a profile with id 
+
+            - DELETE /api/profile/:id 
+                - delete a profile with id  
+            
