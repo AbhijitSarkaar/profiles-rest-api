@@ -2,4 +2,6 @@ steps
 
     - api design 
     - implementation 
-    - authentication and authorization of users 
+    - user authentication and authorization
+    - user login
+    - 
